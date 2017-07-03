@@ -16,9 +16,18 @@ var removeNote = title => {
 	console.log(`Removing ${title}`);
 }
 
+var beginSequence = (username, password) => {
+	if (password === 'stonewall') {
+		console.log(`Welcome back, ${username}. The authentication is xas3ad7f.`);
+	} else {
+		console.log(`I'm sorry ${username}. That password is incorrect.`);
+	}
+}
+
 module.exports = {
 	addNote,
 	getAll,
 	getNote,
-	removeNote
+	removeNote,
+	beginSequence
 };
