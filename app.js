@@ -15,24 +15,33 @@ if (command === 'add') {
 	var note = notes.addNote(argv.title, argv.body);
 	if (note) {
 		console.log('Note created');
-		console.log('--');
-		console.log(`Title: ${note.title}`);
-		console.log(`Body: ${note.body}`);
+		notes.logNote(note);
 	} else {
 		console.log('Note title taken');
 	}
+
 } else if (command === 'list') {
 	notes.getAll();
+
 } else if (command === 'read') {
-	notes.getNote(argv.title);
+	var note = notes.getNote(argv.title);
+	if (note) {
+		console.log('Note found');
+		notes.logNote(note);
+	} else {
+		console.log('Note not found');
+	}
+
 } else if (command === 'remove') {
 	var title = argv.title;
 	var noteRemoved = notes.removeNote(argv.title);
 	// var message = noteRemoved ? 'Note was removed' : 'Note not found';
 	var message = noteRemoved ? `${title} was removed` : `No note called ${title} was found`;
 	console.log(message);
+
 } else if (command === 'authenticate') {
 	notes.beginSequence(argv.username, argv.password);
+	
 } else {
 	console.log('Command not recognized');
 }
