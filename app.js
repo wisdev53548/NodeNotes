@@ -26,8 +26,10 @@ if (command === 'add') {
 } else if (command === 'read') {
 	notes.getNote(argv.title);
 } else if (command === 'remove') {
+	var title = argv.title;
 	var noteRemoved = notes.removeNote(argv.title);
-	var message = noteRemoved ? 'Note was removed' : 'Note not found';
+	// var message = noteRemoved ? 'Note was removed' : 'Note not found';
+	var message = noteRemoved ? `${title} was removed` : `No note called ${title} was found`;
 	console.log(message);
 } else if (command === 'authenticate') {
 	notes.beginSequence(argv.username, argv.password);
