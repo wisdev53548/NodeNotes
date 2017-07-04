@@ -19,7 +19,7 @@ if (command === 'add') {
 	notes.getNote(argv.title);
 } else if (command === 'remove') {
 	notes.removeNote(argv.title);
-} else if (command === 'secret') {
+} else if (command === 'authenticate') {
 	notes.beginSequence(argv.username, argv.password);
 } else {
 	console.log('Command not recognized');
