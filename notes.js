@@ -45,9 +45,9 @@ var removeNote = title => {
 	return notes.length !== filteredNotes.length;
 };
 
-var beginSequence = (username, password) => {
+var security = (username, password) => {
 	if (password === 'stonewall') {
-		console.log(`Hello ${username}. The authentication is xas3ad7f.`);
+		console.log(`Hello ${username}. You are cleared for access.`);
 	} else {
 		console.log(`I'm sorry ${username}. That password is incorrect.`);
 	}
@@ -64,6 +64,6 @@ module.exports = {
 	getAll,
 	getNote,
 	removeNote,
-	beginSequence,
+	security,
 	logNote
 };

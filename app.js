@@ -28,6 +28,18 @@ const argv = yargs
 	.command('remove', 'Remove a note', {
 		title: titleOptions
 	})
+	.command('security', 'Check security clearance', {
+		username: {
+			describe: 'User ID for system',
+			demand: true,
+			alias: 'u'
+		},
+		password: {
+			describe: 'User password',
+			demand: true,
+			alias: 'p'
+		}
+	})
 	.help()
 	.argv;
 
@@ -62,8 +74,8 @@ if (command === 'add') {
 	var message = noteRemoved ? `${title} was removed` : `No note called ${title} was found`;
 	console.log(message);
 
-} else if (command === 'authenticate') {
-	notes.beginSequence(argv.username, argv.password);
+} else if (command === 'security') {
+	notes.security(argv.username, argv.password);
 
 } else {
 	console.log('Command not recognized');
